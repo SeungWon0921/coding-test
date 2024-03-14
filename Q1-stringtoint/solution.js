@@ -1,10 +1,10 @@
-const solution = (str) => {
-  if (str === "" || str === "-" || str === "+") return NaN;
+function solution(s) {
+  if (s === "" || s === "-" || s === "+") return NaN;
 
-  const isNegative = str[0] === "-";
-  const isSign = str[0] === "-" || str[0] === "+";
+  const isNegative = s[0] === "-";
+  const isSign = s[0] === "-" || s[0] === "+";
 
-  const digits = [...str.slice(isSign ? 1 : 0)].map((char) => {
+  const digits = [...s.slice(isSign ? 1 : 0)].map((char) => {
     const code = char.charCodeAt(0) - "0".charCodeAt(0);
     return code >= 0 && code <= 9 ? code : NaN;
   });
@@ -18,7 +18,7 @@ const solution = (str) => {
   }, 0);
 
   return isNegative ? -result : result;
-};
+}
 
 // 테스트
 console.log(solution("1234")); // 1234
